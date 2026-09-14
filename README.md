@@ -49,7 +49,7 @@ Z    X    C    V    B   │   N    M    ,    .    /
 - `H` hold = `⌥⌘⇧C`. `C` hold = `⌘C`; `V` hold = `⌘V`.
 - Inner-left thumb **taps Cmd** / holds NAV. Inner-right thumb taps Return / holds SYSTEM.
 
-ZMK timings copied across: tapping term 200 ms; HRMs are balanced + chordal + hold-on-other-key-*release*, quick-tap 175 ms, prior-idle 150 ms. `C`/`V`/`H`/`[`/`]` are tap-preferred (hold only after 200 ms). Thumbs are the same balanced/permissive rule as HRMs (a roll off the thumb stays a tap; keep the thumb down and tap the other key for the layer). Scroll is 16 notches/sec, no accel.
+ZMK timings copied across: tapping term 200 ms; HRMs are balanced + chordal + hold-on-other-key-*release*, quick-tap 175 ms, prior-idle 150 ms (from last key *up*, like ZMK). Speculative Hold puts Cmd/Ctrl/Alt/Shift down on HRM press so combos like Cmd+BSPC work without waiting out the tapping term. `C`/`V`/`H`/`[`/`]` are tap-preferred (hold only after 200 ms). Thumbs are the same balanced/permissive rule as HRMs (a roll off the thumb stays a tap; keep the thumb down and tap the other key for the layer). Scroll is 16 notches/sec, no accel.
 
 ### 1 · NUM/SYM
 
