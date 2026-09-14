@@ -109,6 +109,25 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_split_
 );
 // clang-format on
 
+// ZMK require-prior-idle-ms is measured from the previous non-modifier
+// key's *press* (behavior_hold_tap.c: store_last_tapped on keycode down).
+// QMK Flow Tap restarts its clock on the previous key's *release* as well
+// (flow_tap_update_last_event), so its forced-tap window is longer by that
+// key's dwell time: a home-row Cmd chorded right after fast typing, or
+// right after tapping Backspace, was forced to a letter where ZMK would
+// have honoured the hold. This is our own press-only clock.
+static uint16_t last_press_time;
+
+static void track_last_press(uint16_t keycode, keyrecord_t *record) {
+    if (!record->event.pressed || keycode == KC_NO || IS_MODIFIER_KEYCODE(keycode)) {
+        return;
+    }
+    if ((IS_QK_MOD_TAP(keycode) || IS_QK_LAYER_TAP(keycode)) && record->tap.count == 0) {
+        return; // a hold, not a tap: ZMK emits no keycode for it either
+    }
+    last_press_time = record->event.time;
+}
+
 static bool is_hrm(uint16_t keycode) {
     switch (keycode) {
         case HRM_A:
@@ -169,16 +188,19 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 }
 
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
-    // ZMK require-prior-idle-ms is only on HRMs, and vs any prior key.
-    (void)record;
+    // ZMK require-prior-idle-ms: HRMs only, vs any prior key, measured from
+    // that key's press (last_press_time), not QMK's press-or-release clock.
+    // QMK compares the value we return against its own clock, so return its
+    // 500 ms cap to make our check the sole decider, or 0 to disable.
     (void)prev_keycode;
-    if (is_hrm(keycode)) {
-        return FLOW_TAP_TERM;
+    if (is_hrm(keycode) && TIMER_DIFF_16(record->event.time, last_press_time) < FLOW_TAP_TERM) {
+        return 500;
     }
     return 0;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    track_last_press(keycode, record);
     switch (keycode) {
         case HT_C:
             if (!record->tap.count && record->event.pressed) {
