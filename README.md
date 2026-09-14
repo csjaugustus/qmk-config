@@ -103,7 +103,7 @@ gh run download <run_id> --repo csjaugustus/qmk-config -n firmware -D /tmp/qmk-f
 cp /tmp/qmk-fw/*.uf2 ~/Downloads/
 ```
 
-The artifact is a single UF2 (both halves). Expected name: `ferris_sweep_mac_rp2040_ce.uf2`.
+The artifact is a single UF2 (both halves): `ferris_sweep_mac.uf2`.
 
 Locally, with [QMK CLI](https://docs.qmk.fm/newbs) set up:
 
