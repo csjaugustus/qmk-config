@@ -66,7 +66,7 @@ Z    X    C    V    B   │   N    M    ,    .    /
 ```
 ·    ·    ·    ·   TAB  │   ·    ·    ·    ·    ·
 ←    ↓    ↑    →    ·   │   ·    ⌘    ⇧    ⌥    ⌃
-·    ·    ·    ·   ESC  │  WH←  WH↓  WH↑  WH→   ·
+·    ·    ·    ·   ESC  │  WH←  WH↑  WH↓  WH→   ·
            ·    ·       │   ·    ·
 ```
 

@@ -14,14 +14,17 @@
 // Typical setup: USB into the left half, TRRS between halves.
 #define SPLIT_USB_DETECT
 
-// Mouse-wheel on NAV: constant speed, no accel (ZMK msc exp=0).
+// Mouse-wheel on NAV: match zmk-config &msc (SCRL_SPD 16 notches/sec,
+// acceleration-exponent 0, delay-ms 0). MAX_SPEED 1 keeps one tick per
+// report; INTERVAL 1000/16. TIME_TO_MAX 0 with MAX_SPEED>1 would jump
+// straight to that many ticks/report, which is not "no accel".
 #define MOUSEKEY_DELAY 0
 #define MOUSEKEY_INTERVAL 16
 #define MOUSEKEY_MOVE_DELTA 6
 #define MOUSEKEY_MAX_SPEED 8
 #define MOUSEKEY_TIME_TO_MAX 40
 #define MOUSEKEY_WHEEL_DELAY 0
-#define MOUSEKEY_WHEEL_INTERVAL 40
+#define MOUSEKEY_WHEEL_INTERVAL 63
 #define MOUSEKEY_WHEEL_DELTA 1
-#define MOUSEKEY_WHEEL_MAX_SPEED 8
+#define MOUSEKEY_WHEEL_MAX_SPEED 1
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 0

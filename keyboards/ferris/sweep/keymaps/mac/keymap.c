@@ -76,13 +76,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * NAV
      * ·    ·    ·    ·    TAB      ·    ·    ·    ·    ·
      * ←    ↓    ↑    →    ·        ·    ⌘    ⇧    ⌥    ⌃
-     * ·    ·    ·    ·    ESC      WH←  WH↓  WH↑  WH→  ·
+     * ·    ·    ·    ·    ESC      WH←  WH↑  WH↓  WH→  ·
      *               ·     ·             ·    ·
      */
     [_NAV] = LAYOUT_split_3x5_2(
         XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_TAB,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
         KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX,     XXXXXXX, KC_RGUI, KC_RSFT, KC_RALT, KC_RCTL,
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ESC,      MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_ESC,      MS_WHLL, MS_WHLU, MS_WHLD, MS_WHLR, XXXXXXX,
                                    _______, _______,     _______, _______
     ),
 
