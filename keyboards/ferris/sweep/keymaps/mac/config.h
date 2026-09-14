@@ -1,12 +1,23 @@
 #pragma once
 
-// Match zmk-config Piantor home-row mods:
-//   tapping-term 200, quick-tap 175, require-prior-idle 150,
-//   balanced + opposite-hand (chordal) + hold-trigger-on-release.
+// ZMK (piantor_pro_bt.keymap) → QMK. Per-key callbacks are in keymap.c;
+// the *_PER_KEY flags are required or QMK ignores those functions.
+//
+// HRM hml/hmr: flavor balanced, tapping-term 200, quick-tap 175,
+//   require-prior-idle 150, opposite-hand + thumbs, hold-trigger-on-release
+//   → TAPPING_TERM 200, CHORDAL_HOLD, PERMISSIVE_HOLD (HRMs only),
+//     QUICK_TAP 175 (HRMs only), FLOW_TAP 150 (HRMs only).
+// &ht (C/V/H, [/]): flavor tap-preferred, tapping-term 200, no quick-tap
+//   → no permissive, no hold-on-other-key-press, quick-tap 0.
+// &lt thumbs: ZMK default hold-preferred
+//   → HOLD_ON_OTHER_KEY_PRESS, quick-tap 0. Thumbs are '*' in chordal layout
+//     so they still hold with same-hand keys (ZMK THUMBS in trigger positions).
 #define TAPPING_TERM 200
-#define PERMISSIVE_HOLD
 #define CHORDAL_HOLD
+#define PERMISSIVE_HOLD_PER_KEY
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define QUICK_TAP_TERM 175
+#define QUICK_TAP_TERM_PER_KEY
 #define FLOW_TAP_TERM 150
 
 // Sea-Picro (rp2040_ce) exposes VBUS, so whichever half is plugged

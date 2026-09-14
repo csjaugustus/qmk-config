@@ -139,13 +139,18 @@ static bool is_tap_preferred(uint16_t keycode) {
 }
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    // ZMK HRM "balanced" + hold-trigger-on-release: hold if another key
+    // is pressed and released before tapping term. Not for &ht.
+    (void)record;
     if (is_tap_preferred(keycode)) {
         return false;
     }
-    return true;
+    return is_hrm(keycode);
 }
 
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    // ZMK default &lt flavor is hold-preferred: other key press → layer.
+    (void)record;
     switch (keycode) {
         case NUM_SPC:
         case NAV_CMD:
@@ -157,18 +162,19 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 }
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case NUM_SPC:
-        case NAV_CMD:
-        case SYS_ENT:
-            return 0;
-        default:
-            return QUICK_TAP_TERM;
+    // ZMK quick-tap-ms is only set on hml/hmr. &ht and &lt leave it 0.
+    (void)record;
+    if (is_hrm(keycode)) {
+        return QUICK_TAP_TERM;
     }
+    return 0;
 }
 
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
-    if (is_hrm(keycode) && is_flow_tap_key(prev_keycode)) {
+    // ZMK require-prior-idle-ms is only on HRMs, and vs any prior key.
+    (void)record;
+    (void)prev_keycode;
+    if (is_hrm(keycode)) {
         return FLOW_TAP_TERM;
     }
     return 0;
