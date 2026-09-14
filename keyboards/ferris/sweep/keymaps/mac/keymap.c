@@ -90,13 +90,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * SYSTEM (hold RET)
      * Caps ·    ·    ·    ·        ·    ·    Pass ·    ·
      * ·    MUTE V-   V+   play     ctl-alt-ent/arrows
-     * BOOT ·    ·    ·    ·        ·    opt-cmd-s-/ cmd-s-4 cmd-s-5 BOOT
+     * ·    ·    ·    ·    ·        ·    opt-cmd-s-/ cmd-s-4 cmd-s-5 ·
      *               ·     ·             ·    ·
      */
     [_SYS] = LAYOUT_split_3x5_2(
         KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, PW_MAIN, XXXXXXX, XXXXXXX,
         XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY,     LCA(KC_ENT), LCA(KC_LEFT), LCA(KC_DOWN), LCA(KC_UP), LCA(KC_RGHT),
-        QK_BOOT, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, A(G(S(KC_SLSH))), SGUI(KC_4), SGUI(KC_5), QK_BOOT,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, A(G(S(KC_SLSH))), SGUI(KC_4), SGUI(KC_5), XXXXXXX,
                                    _______, _______,     _______, _______
     ),
 };
