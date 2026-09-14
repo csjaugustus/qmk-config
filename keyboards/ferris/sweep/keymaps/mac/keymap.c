@@ -109,6 +109,9 @@ const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT_split_
 );
 // clang-format on
 
+// ZMK require-prior-idle uses last completed tap (key up), not last press.
+static uint16_t last_tapped_time;
+
 static bool is_hrm(uint16_t keycode) {
     switch (keycode) {
         case HRM_A:
@@ -169,16 +172,25 @@ uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
 }
 
 uint16_t get_flow_tap_term(uint16_t keycode, keyrecord_t *record, uint16_t prev_keycode) {
-    // ZMK require-prior-idle-ms is only on HRMs, and vs any prior key.
+    // Only HRMs. If the previous key is still down, last_tapped is older
+    // and Flow Tap must not force this HRM to a letter (Cmd+BSPC after a
+    // not-quite-released key). Cold start: last_tapped_time is 0 and
+    // timer_elapsed is large, so Flow Tap stays off.
     (void)record;
     (void)prev_keycode;
-    if (is_hrm(keycode)) {
-        return FLOW_TAP_TERM;
+    if (!is_hrm(keycode)) {
+        return 0;
     }
-    return 0;
+    if (timer_elapsed(last_tapped_time) > FLOW_TAP_TERM) {
+        return 0;
+    }
+    return FLOW_TAP_TERM;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+    if (!record->event.pressed && !IS_MODIFIER_KEYCODE(keycode)) {
+        last_tapped_time = timer_read();
+    }
     switch (keycode) {
         case HT_C:
             if (!record->tap.count && record->event.pressed) {
