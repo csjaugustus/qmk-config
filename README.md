@@ -21,13 +21,12 @@ Piantor outer columns were already blank on QWERTY/NAV, so they just disappear. 
 
 | Piantor thumbs (L→R) | Sweep thumbs |
 |---|---|
-| Caps · SPC/NUM · ⌘/NAV | **⌘/NAV** · **SPC/NUM** (swapped vs Piantor) |
-| RET/SYS · BSPC · _(blank)_ | **BSPC** · **RET/SYS** (swapped vs Piantor) |
+| Caps · **SPC/NUM** · **⌘/NAV** | **SPC/NUM** · **⌘/NAV** |
+| **RET/SYS** · **BSPC** · _(blank)_ | **RET/SYS** · **BSPC** |
 
 Relocated / dropped:
 
 - **Caps Lock** → SYSTEM `Q` (hold RET, tap Q)
-- **Tab** / **Esc** → NAV `Q` / `Z` (were on NAV `T` / `B` on the Piantor)
 - Bluetooth profile keys, `PWR`, `QK_BOOT`, and the far-right NUM dash column dropped. Flash via the Sea-Picro reset button (or Bootmagic: hold `Q`/`P` while plugging that half in).
 
 ## Layers
@@ -42,13 +41,13 @@ A    S    D    F    G   │   H    J    K    L    ;
 ⌃    ⌥    ⇧    ⌘        │   ⌥⌘⇧C ⌘    ⇧    ⌥    ⌃
 Z    X    C    V    B   │   N    M    ,    .    /
          ⌘C   ⌘V
-           ⌘    SPC     │  BSPC  RET
-           NAV  NUM     │        SYS
+           SPC  ⌘       │  RET  BSPC
+           NUM  NAV     │  SYS
 ```
 
 - Home-row mods `A S D F` / `J K L ;` = Ctrl / Alt / Shift / **Cmd**, opposite-hand only (QMK Chordal Hold, same idea as the ZMK `hml`/`hmr` setup).
 - `H` hold = `⌥⌘⇧C`. `C` hold = `⌘C`; `V` hold = `⌘V`.
-- Outer-left thumb **taps Cmd** / holds NAV. Inner-left = Space / NUM. Inner-right = Backspace. Outer-right taps Return / holds SYSTEM.
+- Inner-left thumb **taps Cmd** / holds NAV. Inner-right thumb taps Return / holds SYSTEM.
 
 ### 1 · NUM/SYM
 
@@ -57,7 +56,7 @@ Z    X    C    V    B   │   N    M    ,    .    /
 ~    &    *    (    )   │   4    5    6    +    ^
 -    [    ]    '    "   │   1    2    3    .    \
     {    }
-           ·    ·       │   ·    0
+           ·    ·       │   0    ·
 ```
 
 - `[` / `]` tap = square brackets; **hold** = `{` / `}`.
@@ -65,9 +64,9 @@ Z    X    C    V    B   │   N    M    ,    .    /
 ### 3 · NAV
 
 ```
-TAB  ·    ·    ·    ·   │   ·    ·    ·    ·    ·
+·    ·    ·    ·   TAB  │   ·    ·    ·    ·    ·
 ←    ↓    ↑    →    ·   │   ·    ⌘    ⇧    ⌥    ⌃
-ESC  ·    ·    ·    ·   │  WH←  WH↓  WH↑  WH→   ·
+·    ·    ·    ·   ESC  │  WH←  WH↓  WH↑  WH→   ·
            ·    ·       │   ·    ·
 ```
 
