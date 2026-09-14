@@ -24,13 +24,11 @@ Piantor outer columns were already blank on QWERTY/NAV, so they just disappear. 
 | Caps · **SPC/NUM** · **⌘/NAV** | **SPC/NUM** · **⌘/NAV** |
 | **RET/SYS** · **BSPC** · _(blank)_ | **RET/SYS** · **BSPC** |
 
-Relocated keys:
+Relocated / dropped:
 
 - **Caps Lock** → SYSTEM `Q` (hold RET, tap Q)
-- **Em dash —** (`⌥⇧-`) → NUM + inner-left thumb (the ⌘/NAV key)
-- **En dash –** (`⌥-`) → NUM + right BSPC thumb
-- **QK_BOOT** (was `PWR` / BT, neither of which exist here) → SYSTEM `T` (left half) and SYSTEM `P` (right half)
-- Bluetooth profile keys dropped (wired board)
+- **QK_BOOT** → SYSTEM `T` (left MCU) and SYSTEM `P` (right MCU). Each half has its own RP2040; a boot key only resets the half it sits on.
+- Bluetooth profile keys, `PWR`, and the far-right NUM dash column dropped (no such column on the Sweep; unused NUM thumbs stay blank)
 
 ## Layers
 
@@ -59,11 +57,10 @@ Z    X    C    V    B   │   N    M    ,    .    /
 ~    &    *    (    )   │   4    5    6    +    ^
 -    [    ]    '    "   │   1    2    3    .    \
     {    }
-           ·    —       │   0    –
+           ·    ·       │   0    ·
 ```
 
 - `[` / `]` tap = square brackets; **hold** = `{` / `}`.
-- Dashes live on the unused NUM thumbs (they were on the Piantor’s far-right column, which the Sweep does not have).
 
 ### 3 · NAV
 
@@ -86,7 +83,7 @@ Caps  ·    ·    ·  BOOT │   ·    ·   Pass   ·   BOOT
 ```
 
 - `I` = password macro (`pw_main`, same string as the ZMK keymap).
-- `BOOT` on `T` resets the **left** controller; `BOOT` on `P` resets the **right**. Unplug the TRRS cable first.
+- `BOOT` on `T` / `P`: two keys because there are two MCUs. Hold RET+`T` to reboot the left Sea-Picro into the bootloader; RET+`P` for the right. Unplug TRRS first. The PCB reset button on that half does the same thing.
 
 ## Building
 

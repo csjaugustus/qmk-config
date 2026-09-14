@@ -37,10 +37,7 @@ enum custom_keycodes {
 #define HRM_L    RALT_T(KC_L)
 #define HRM_SCLN RCTL_T(KC_SCLN)
 
-#define EM_DASH A(S(KC_MINS)) /* ⌥⇧-  em dash — */
-#define EN_DASH A(KC_MINS)    /* ⌥-   en dash – */
-
-#define NAV_CMD LT(_NAV, KC_LGUI) /* tap ⌘ / hold NAV */
+#define NAV_CMD LT(_NAV, KC_LGUI) /* tap Cmd / hold NAV */
 #define NUM_SPC LT(_NUM, KC_SPC)
 #define SYS_ENT LT(_SYS, KC_ENT)
 
@@ -65,14 +62,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * NUM/SYM
      * !    @    #    $    %        7    8    9    =    `
      * ~    &    *    (    )        4    5    6    +    ^
-     * -    [/hold  ]/hold  '    "        1    2    3    .    \
-     *               ·     —             0    –
+     * -    [    ]    '    "        1    2    3    .    \
+     *               ·     ·             0    ·
      */
     [_NUM] = LAYOUT_split_3x5_2(
         KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,     KC_7,    KC_8,    KC_9,    KC_EQL,  KC_GRV,
         KC_TILD, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,     KC_4,    KC_5,    KC_6,    KC_PLUS, KC_CIRC,
         KC_MINS, HT_LBRC, HT_RBRC, KC_QUOT, KC_DQUO,     KC_1,    KC_2,    KC_3,    KC_DOT,  KC_BSLS,
-                                   _______, EM_DASH,     KC_0,    EN_DASH
+                                   _______, _______,     KC_0,    _______
     ),
 
     /*
