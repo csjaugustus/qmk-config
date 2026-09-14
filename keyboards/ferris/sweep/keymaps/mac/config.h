@@ -9,13 +9,13 @@
 //     QUICK_TAP 175 (HRMs only), FLOW_TAP 150 (HRMs only).
 // &ht (C/V/H, [/]): flavor tap-preferred, tapping-term 200, no quick-tap
 //   → no permissive, no hold-on-other-key-press, quick-tap 0.
-// &lt thumbs: ZMK default hold-preferred
-//   → HOLD_ON_OTHER_KEY_PRESS, quick-tap 0. Thumbs are '*' in chordal layout
-//     so they still hold with same-hand keys (ZMK THUMBS in trigger positions).
+// Thumbs (Space/NUM, Cmd/NAV, Ret/SYS): balanced/permissive, not
+//   hold-on-press — a roll (thumb down, next key down, thumb up) stays a
+//   tap. Nested (keep thumb down, tap other, release other) is the layer.
+//   Thumbs are '*' in chordal layout so NAV+arrows (same hand) still work.
 #define TAPPING_TERM 200
 #define CHORDAL_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
-#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 #define QUICK_TAP_TERM 175
 #define QUICK_TAP_TERM_PER_KEY
 #define FLOW_TAP_TERM 150

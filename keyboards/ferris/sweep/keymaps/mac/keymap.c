@@ -138,19 +138,7 @@ static bool is_tap_preferred(uint16_t keycode) {
     }
 }
 
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    // ZMK HRM "balanced" + hold-trigger-on-release: hold if another key
-    // is pressed and released before tapping term. Not for &ht.
-    (void)record;
-    if (is_tap_preferred(keycode)) {
-        return false;
-    }
-    return is_hrm(keycode);
-}
-
-bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    // ZMK default &lt flavor is hold-preferred: other key press → layer.
-    (void)record;
+static bool is_thumb_lt(uint16_t keycode) {
     switch (keycode) {
         case NUM_SPC:
         case NAV_CMD:
@@ -159,6 +147,16 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
         default:
             return false;
     }
+}
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    // HRMs and thumbs: hold if another key is pressed and released before
+    // tapping term (rolls stay taps). Not for &ht.
+    (void)record;
+    if (is_tap_preferred(keycode)) {
+        return false;
+    }
+    return is_hrm(keycode) || is_thumb_lt(keycode);
 }
 
 uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
