@@ -27,7 +27,7 @@ Piantor outer columns were already blank on QWERTY/NAV, so they just disappear. 
 Relocated / dropped:
 
 - **Caps Lock** → SYSTEM `Q` (hold RET, tap Q)
-- **QK_BOOT** → SYSTEM `T` (left MCU) and SYSTEM `P` (right MCU). Each half has its own RP2040; a boot key only resets the half it sits on.
+- **QK_BOOT** → SYSTEM `Z` (left MCU) and SYSTEM `/` (right MCU), the bottom-row pinkies. Each half has its own RP2040; a boot key only resets the half it sits on.
 - Bluetooth profile keys, `PWR`, and the far-right NUM dash column dropped (no such column on the Sweep; unused NUM thumbs stay blank)
 
 ## Layers
@@ -76,14 +76,14 @@ Z    X    C    V    B   │   N    M    ,    .    /
 Held via **hold RET**.
 
 ```
-Caps  ·    ·    ·  BOOT │   ·    ·   Pass   ·   BOOT
+Caps  ·    ·    ·    ·  │   ·    ·   Pass   ·    ·
  ·   MUTE  V-   V+  ▶⏸  │  ⌃⌥⏎  ⌃⌥←  ⌃⌥↓  ⌃⌥↑  ⌃⌥→
- ·    ·    ·    ·    ·  │   ·  ⌥⌘⇧/  ⌘⇧4  ⌘⇧5   ·
+BOOT  ·    ·    ·    ·  │   ·  ⌥⌘⇧/  ⌘⇧4  ⌘⇧5  BOOT
            ·    ·       │   ·    ·
 ```
 
 - `I` = password macro (`pw_main`, same string as the ZMK keymap).
-- `BOOT` on `T` / `P`: two keys because there are two MCUs. Hold RET+`T` to reboot the left Sea-Picro into the bootloader; RET+`P` for the right. Unplug TRRS first. The PCB reset button on that half does the same thing.
+- Two `BOOT` keys because there are two MCUs. Hold RET+`Z` (left pinky, opposite hand) to reboot the left Sea-Picro; RET+`/` (right pinky, full-hand stretch) for the right. Unplug TRRS first. The PCB reset button on that half does the same thing.
 
 ## Building
 
