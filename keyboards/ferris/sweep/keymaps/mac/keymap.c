@@ -49,8 +49,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * QWERTY
      * Q    W    E    R    T        Y    U    I    O    P
-     * A/⌃  S/⌥  D/⇧  F/⌘  G        H/*  J/⌘  K/⇧  L/⌥  ;/⌃
-     * Z    X    C/*  V/*  B        N    M    ,    .    /
+     * A/⌃  S/⌥  D/⇧  F/⌘  G        H/h  J/⌘  K/⇧  L/⌥  ;/⌃
+     * Z    X    C/h  V/h  B        N    M    ,    .    /
      *               SPC   ⌘             RET  BSPC
      *               NUM   NAV           SYS
      */
@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * NUM/SYM
      * !    @    #    $    %        7    8    9    =    `
      * ~    &    *    (    )        4    5    6    +    ^
-     * -    [/{  ]/}  '    "        1    2    3    .    \
+     * -    [/hold  ]/hold  '    "        1    2    3    .    \
      *               ·     —             0    –
      */
     [_NUM] = LAYOUT_split_3x5_2(
