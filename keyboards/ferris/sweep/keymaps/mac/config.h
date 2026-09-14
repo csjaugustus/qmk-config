@@ -6,8 +6,7 @@
 // HRM hml/hmr: flavor balanced, tapping-term 200, quick-tap 175,
 //   require-prior-idle 150, opposite-hand + thumbs, hold-trigger-on-release
 //   → TAPPING_TERM 200, CHORDAL_HOLD, PERMISSIVE_HOLD (HRMs only),
-//     QUICK_TAP 175 (HRMs only), FLOW_TAP 150 (HRMs only; clocked from
-//     last key *release* like ZMK last_tapped, not last press).
+//     QUICK_TAP 175 (HRMs only), FLOW_TAP 150 (HRMs only).
 // &ht (C/V/H, [/]): flavor tap-preferred, tapping-term 200, no quick-tap
 //   → no permissive, no hold-on-other-key-press, quick-tap 0.
 // Thumbs (Space/NUM, Cmd/NAV, Ret/SYS): balanced/permissive, not
