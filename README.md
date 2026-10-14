@@ -77,9 +77,9 @@ ZMK timings copied across: tapping term 200 ms; HRMs are balanced + chordal + ho
 Held via **hold RET**.
 
 ```
-Caps  ·    ·    ·    ·  │ ⌥⌘⇧/  ·   ⌥⌘T   ·   Pass
+Caps  ·    ·    ·    ·  │ ⌥⌘⇧/ ⌃⌥R  ⌃⌥C   ·   Pass
  ·   MUTE  V-   V+  ▶⏸  │  ⌘⇧4 ⌃⌥←  ⌃⌥↓  ⌃⌥↑  ⌃⌥→
- ·    ·    ·    ·    ·  │  ⌘⇧5 ⌃⌥R  ⌃⌥C   ·    ·
+ ·    ·    ·    ·    ·  │  ⌘⇧5 ⌥⌘T   ·    ·    ·
            ·    ·       │   ·    ·
 ```
 
