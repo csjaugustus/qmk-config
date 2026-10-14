@@ -90,13 +90,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * SYSTEM (hold RET)
      * Caps ·    ·    ·    ·        ⌥⌘⇧/ ⌃⌥R  ⌃⌥C  ·    Pass
      * ·    MUTE V-   V+   play     ⌘⇧4  ⌃⌥←  ⌃⌥↓  ⌃⌥↑  ⌃⌥→
-     * ·    ·    ·    ·    ·        ⌘⇧5  ⌥⌘T  ·    ·    ·
+     * ·    ·    ·    ·    ·        ⌘⇧5  ⌃⌥T  ·    ·    ·
      *               ·     ·             ·    ·
      */
     [_SYS] = LAYOUT_split_3x5_2(
         KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     A(G(S(KC_SLSH))), LCA(KC_R), LCA(KC_C), XXXXXXX, PW_MAIN,
         XXXXXXX, KC_MUTE, KC_VOLD, KC_VOLU, KC_MPLY,     SGUI(KC_4), LCA(KC_LEFT), LCA(KC_DOWN), LCA(KC_UP), LCA(KC_RGHT),
-        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     SGUI(KC_5), A(G(KC_T)), XXXXXXX, XXXXXXX, XXXXXXX,
+        XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     SGUI(KC_5), LCA(KC_T), XXXXXXX, XXXXXXX, XXXXXXX,
                                    _______, _______,     _______, _______
     ),
 };
