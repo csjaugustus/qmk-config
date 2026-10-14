@@ -77,13 +77,13 @@ ZMK timings copied across: tapping term 200 ms; HRMs are balanced + chordal + ho
 Held via **hold RET**.
 
 ```
-Caps  ·    ·    ·    ·  │   ·    ·   Pass   ·    ·
- ·   MUTE  V-   V+  ▶⏸  │  ⌃⌥⏎  ⌃⌥←  ⌃⌥↓  ⌃⌥↑  ⌃⌥→
- ·    ·    ·    ·    ·  │   ·  ⌥⌘⇧/  ⌘⇧4  ⌘⇧5   ·
+Caps  ·    ·    ·    ·  │ ⌥⌘⇧/  ·   ⌥⌘T   ·   Pass
+ ·   MUTE  V-   V+  ▶⏸  │  ⌘⇧4 ⌃⌥←  ⌃⌥↓  ⌃⌥↑  ⌃⌥→
+ ·    ·    ·    ·    ·  │  ⌘⇧5 ⌃⌥R  ⌃⌥C   ·    ·
            ·    ·       │   ·    ·
 ```
 
-- `I` = password macro (`pw_main`, same string as the ZMK keymap).
+- `P` = password macro (`pw_main`, same string as the ZMK keymap).
 - No bootloader key. Each half already has a Sea-Picro reset button; hold it ~1 s to mount `RPI-RP2`. Backup: hold `Q` (left) or `P` (right) while plugging that half in (Bootmagic).
 
 ## Building
